@@ -1,7 +1,7 @@
 # ProgressiveSurvey
 A survey creator that gives results per question, not per survey.
 
-##How it works
+## How it works
 
 ![compile.html screenshot](compile.png)
 
