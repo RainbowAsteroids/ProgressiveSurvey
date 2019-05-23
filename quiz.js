@@ -68,5 +68,5 @@ function results(data) {
         output.insertAdjacentHTML("beforeend", data["questions"][Number(element.id)]["answers"][element.value]+" ");
     })
     output.insertAdjacentHTML("beforeend","<br>");
-    mainElement.insertAdjacentHTML("beforeend","<hr><footer>Thank you for taking the survey \""+data["title"]+"\" by "+data["author"]+" and for using <a href="https://github.com/RainbowAsteroids/ProgressiveSurvey"><b>Progressive Survey</b></a>!</footer>")
+    mainElement.insertAdjacentHTML("beforeend","<hr><footer>Thank you for taking the survey \""+data["title"]+"\" by "+data["author"]+" and for using <a href=\"https://github.com/RainbowAsteroids/ProgressiveSurvey\"><b>Progressive Survey</b></a>!</footer>")
 }
