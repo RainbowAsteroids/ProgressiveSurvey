@@ -48,9 +48,9 @@ function results(data) {
     var pass = true;
     data["questions"].forEach(function(question) {
         let answered = false;
-        document.getElementsByName(question["title"]).forEach(function(input) {
-            if (input.checked) {inputs.push(input.cloneNode());answered = true;return;}
-        });
+        for (input of document.getElementsByName(question["title"])) {
+            if (input.checked) {inputs.push(input.cloneNode());answered = true;continue;}
+        };
         pass = answered; //If user didn't answer any questions, don't execute the second half of this function
         if (!answered) { //make sure user answered the questions
             mainElement.insertAdjacentHTML("beforeend",'<b class="error">You did not answer question "'+question["title"]+'"!<br></b>');
@@ -64,7 +64,6 @@ function results(data) {
     var output = document.createElement('p'); mainElement.appendChild(output);
 
     inputs.forEach(function(element) {
-        console.log(element.id);
         output.insertAdjacentHTML("beforeend", data["questions"][Number(element.id)]["answers"][element.value]+" ");
     })
     output.insertAdjacentHTML("beforeend","<br>");
