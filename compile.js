@@ -154,12 +154,26 @@ class Quiz { //This is the quiz
                 "answers":answers
             })
         })
-	console.log(window.btoa(unescape(encodeURIComponent(JSON.stringify(save_quiz,"",4)))))
         saveAs("data:application/json;charset=utf-8;base64,"+window.btoa(unescape(encodeURIComponent(JSON.stringify(save_quiz,"",4)))), quiz.quizTitle.value+".json");
     }
 }
 
 var quiz;
+let logQuiz;
 function init(){
     quiz = new Quiz();
+    logQuiz = () => {
+    	var save_quiz = {"title":quiz.quizTitle.value, "author":quiz.author.value, "questions":new Array()};
+        this.questions.forEach(function(question) {
+            let answers = {}
+            question.answers.forEach(function(answer) {
+                answers[answer.option.value] = answer.result.value
+            });
+            save_quiz["questions"].push({
+                "title":question.questionTitle.value,
+                "answers":answers
+            });
+        });
+	console.log(window.btoa(unescape(encodeURIComponent(JSON.stringify(save_quiz,"",4)))));
+    }
 }
