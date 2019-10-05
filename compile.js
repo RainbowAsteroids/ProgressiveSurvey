@@ -164,7 +164,7 @@ function init(){
     quiz = new Quiz();
     logQuiz = () => {
     	var save_quiz = {"title":quiz.quizTitle.value, "author":quiz.author.value, "questions":new Array()};
-        this.questions.forEach(function(question) {
+        quiz.questions.forEach(function(question) {
             let answers = {}
             question.answers.forEach(function(answer) {
                 answers[answer.option.value] = answer.result.value
