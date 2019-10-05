@@ -154,7 +154,7 @@ class Quiz { //This is the quiz
                 "answers":answers
             })
         })
-	conole.log(window.btoa(unescape(encodeURIComponent(JSON.stringify(save_quiz,"",4)))))
+	console.log(window.btoa(unescape(encodeURIComponent(JSON.stringify(save_quiz,"",4)))))
         saveAs("data:application/json;charset=utf-8;base64,"+window.btoa(unescape(encodeURIComponent(JSON.stringify(save_quiz,"",4)))), quiz.quizTitle.value+".json");
     }
 }
